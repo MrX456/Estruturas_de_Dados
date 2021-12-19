@@ -1,10 +1,11 @@
 #include <iostream>
-#include "arvoreAVL.h" //modificado
+#include "AVLTree.h"
 
 using namespace std;
 
-int main(){
-    ArvoreAVL Arvorealunos; //modificado
+int main()
+{
+    AVLTree Arvorealunos;
     int opcao, ra, imp;
     string nome;
     bool busca = false;
@@ -23,41 +24,41 @@ int main(){
             cout << "Digite o RA do aluno:\n";
             cin >> ra;
             Aluno aluno(ra, nome);
-        if (Arvorealunos.estacheio()){
-            cout << "A Ãrvore esta cheia!\n";
+        if (Arvorealunos.isFull()){
+            cout << "A Árvore esta cheia!\n";
             cout << "Nao foi possivel inserir o elemento!\n";
-        } else{            
-            Arvorealunos.inserir(aluno);
+        } else{
+            Arvorealunos.insertAluno(aluno);
         }
         } else if (opcao == 2){
             cout << "Digite o RA do aluno a ser removido!\n";
             cin >> ra;
             Aluno aluno(ra, " ");
-            Arvorealunos.remover(aluno);
+            Arvorealunos.deleteAluno(aluno);
         } else if (opcao == 3){
             cout << "Digite o RA do aluno a ser buscado!\n";
             cin >> ra;
             Aluno aluno(ra, " ");
-            Arvorealunos.buscar(aluno, busca);
+            Arvorealunos.searchAluno(aluno, busca);
             if (busca){
                 cout << "Elemento encontrado!\n";
-                cout << "Nome: " << aluno.obterNome() << endl;
-                cout << "RA: " << aluno.obterRa() << endl;
+                cout << "Nome: " << aluno.getNome() << endl;
+                cout << "RA: " << aluno.getRa() << endl;
             } else{
                 cout << "Elemento nao encontrado!\n";
-            }           
+            }
         } else if (opcao == 4){
             cout << "Digite 1 para fazer a impressao em pre ordem!\n";
             cout << "Digite 2 para fazer a impressao em ordem!\n";
             cout << "Digite 3 para fazer a impressao em pos ordem!\n";
             cin >> imp;
             if (imp == 1){
-                Arvorealunos.imprimirpreordem(Arvorealunos.obterRaiz());
+                Arvorealunos.printPreOrder(Arvorealunos.getNode());
             } else if (imp == 2){
-                Arvorealunos.imprimiremordem(Arvorealunos.obterRaiz());
+                Arvorealunos.printInOrder(Arvorealunos.getNode());
             } else{
-                Arvorealunos.imprimirposordem(Arvorealunos.obterRaiz());
-            }                   
+                Arvorealunos.printPostOrder(Arvorealunos.getNode());
+            }
         }
     } while (opcao != 0);
 

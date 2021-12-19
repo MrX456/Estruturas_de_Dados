@@ -7,18 +7,18 @@ using namespace std;
         nome = " ";
     }
 
-    Aluno::Aluno(int r, string n)
+    Aluno::Aluno(int ra, string nome)
     {
-        ra = r;
-        nome = n;
+        this->ra = ra;
+        this->nome = nome;
     }
 
-    string Aluno::obterNome()
+    string Aluno::getNome()
     {
         return nome;
     }
 
-    int Aluno::obterRa()
+    int Aluno::getRa()
     {
         return ra;
     }

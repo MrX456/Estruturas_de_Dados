@@ -8,7 +8,7 @@ class Aluno{
 
     public:
     Aluno();
-    Aluno(int r, string n);
-    string obterNome();
-    int obterRa();
+    Aluno(int ra, string nome);
+    string getNome();
+    int getRa();
 };
